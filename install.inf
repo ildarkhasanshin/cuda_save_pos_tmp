@@ -7,7 +7,7 @@ homepage=https://github.com/ildarkhasanshin/cuda_save_pos_tmp
 
 [item1]
 section=events
-events=on_close
+events=on_close_pre
 
 [item2]
 section=events
