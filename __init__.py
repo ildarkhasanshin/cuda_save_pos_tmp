@@ -29,9 +29,6 @@ class Command:
         ed_self.set_caret(0, line)
         ed_self.set_prop(PROP_LINE_TOP, max(0, line-3))
 
-    def on_exit(self, ed_self):
-        self.on_close(ed_self)
-
     def on_close(self, ed_self):
         path_full = ed_self.get_filename()
         if (self.check_tmp_dir(path_full)):
