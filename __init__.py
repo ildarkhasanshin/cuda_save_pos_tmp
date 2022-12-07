@@ -51,12 +51,13 @@ class Command:
         return data_load
 
     def save_pos(self, path, ed_self):
-        data = {path: self.get_caret(ed_self)}
-        data_load = self.load_pos()
-        if data_load:
-            data_load[path] = self.get_caret(ed_self)
-        else:
-            data_load.update(data)
+        if self.get_caret(ed_self) > 0:
+            data = {path: self.get_caret(ed_self)}
+            data_load = self.load_pos()
+            if data_load:
+                data_load[path] = self.get_caret(ed_self)
+            else:
+                data_load.update(data)
 
-        with self.history_filename.open(mode="w", encoding="utf-8") as fout:
-            json.dump(data_load, fout, indent=2)
+            with self.history_filename.open(mode="w", encoding="utf-8") as fout:
+                json.dump(data_load, fout, indent=2)
