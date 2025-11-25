@@ -30,12 +30,7 @@ class Command:
         ed_self.set_prop(PROP_LINE_TOP, max(0, line-3))
 
     def get_bookmarks(self, ed_self):
-        bookmarks = ed_self.bookmark(BOOKMARK_GET_ALL, 0)
-        lines = []
-        for bookmark in bookmarks:
-            lines.append(bookmark['line'])
-
-        return lines
+        return [bookmark['line'] for bookmark in ed_self.bookmark(BOOKMARK_GET_ALL, 0)]
 
     def set_bookmarks(self, ed_self, bookmarks_):
         if (isinstance(bookmarks_, list)):
